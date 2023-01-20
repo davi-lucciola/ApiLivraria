@@ -11,3 +11,6 @@ class Estoque(ModelBase):
     
     def __repr__(self) -> str:
         return f'<{self.id_livro} | {self.quantidade}>'
+
+    def to_json(self) -> dict:
+        return {'id_livro': self.id_livro, 'quantidade': self.quantidade}

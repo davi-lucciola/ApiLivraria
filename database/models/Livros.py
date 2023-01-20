@@ -9,5 +9,13 @@ class Livro(ModelBase):
     ano: int = Column(Integer, nullable=True)
     autor: str = Column(String(50), nullable=True)
     
+    def __init__(self, nome: str, ano: int, autor: str) -> None:
+        self.nome = nome
+        self.ano = ano
+        self.autor = autor
+
     def __repr__(self) -> str:
         return f'<{self.nome} | {self.ano}>'
+
+    def to_json(self) -> dict:
+        return {'id': self.id, 'nome': self.nome, 'ano': self.ano, 'autor': self.autor}
