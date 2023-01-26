@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, Response
-from resource.connection.session_db import session_factory
 from resource.models.all_models import *
+from resource.database import livraria_repository
 
 
 app = Flask(__name__)
@@ -8,49 +8,41 @@ app = Flask(__name__)
 
 @app.route('/livros', methods=['GET'])
 def get_all_books():
-    with session_factory() as session:
-        livros = [livro.to_json() for livro in session.query(Livro).all()]
-        return jsonify(livros)
+    livros = livraria_repository.get_all()
+    return livros if livros is not None else Response(status=204)
 
 @app.route('/livros/<int:id>', methods=['GET'])
 def get_one_book(id):
-    with session_factory() as session:
-        livro = session.query(Livro).get(id)
-        if livro is None:
-            return Response(status=204)
-        return jsonify(livro.to_json())     
+    livro = livraria_repository.get_by_id(id)
+    if livro is None:
+        return Response(status=204)
+    return jsonify(livro.to_json())     
 
 @app.route('/livros', methods=['POST'])
-def inserirLivros():
+def cadastrar_livro():
     livro_data = request.get_json()
     livro = Livro(
         nome = livro_data.get('nome'),
         ano = livro_data.get('ano'),
         autor = livro_data.get('autor')
     )
-    
-    errors = []
-    for key, value in livro.to_json().items():
-        if value is None:
-            errors.append(
-                {
-                    "message" : f"O atributo {key} não foi passado"
-                }
-            )
-    
-    if len(errors) == 0:
+
+    try:
+        livraria_repository.inserir_livro(livro)
+    except:
         return Response(
-            response=jsonify(errors),
-            status=400,
-            mimetype="application/json"
+                response = {"message" : "Erro ao cadastrar o livro"},
+                status = 500
+            )
+
+    return Response (
+            response = {"message" : "Livro Cadastrado com Sucesso"},
+            status = 200
         )
 
-    with session_factory() as session:
-        print(livro)
-        session.add(livro)
-        session.commit()
-    
-    return "Livro Cadastrado com Sucesso!"
+@app.route('/livros/<int:id>', methods=['PUT'])
+def alterar_livro(id):
+    pass
 
 if __name__ == '__main__':
     app.run(debug=True)
