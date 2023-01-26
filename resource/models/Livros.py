@@ -1,4 +1,4 @@
-from database.models.ModelBase import *
+from resource.models.ModelBase import *
 
 
 class Livro(ModelBase):
@@ -19,3 +19,14 @@ class Livro(ModelBase):
 
     def to_json(self) -> dict:
         return {'id': self.id, 'nome': self.nome, 'ano': self.ano, 'autor': self.autor}
+    
+    def __eq__(self, livro) -> bool:
+        return (
+            self.id == livro.id \
+                and
+            self.nome == livro.nome \
+                and
+            self.autor == livro.autor \
+                and
+            self.ano == livro.ano
+        )

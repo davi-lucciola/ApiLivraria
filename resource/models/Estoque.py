@@ -1,4 +1,4 @@
-from database.models.ModelBase import *
+from resource.models.ModelBase import *
 from sqlalchemy import ForeignKey
 
 

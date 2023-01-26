@@ -1,4 +1,4 @@
-from database.__engine import engine
+from resource.connection.__engine import engine
 from sqlalchemy.orm import sessionmaker, Session
 
 
