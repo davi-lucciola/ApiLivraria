@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, Response
+from flask import Flask, Response, request, jsonify
 from resource.models.all_models import *
 from resource.database import livraria_repository
 import http.client as HTTP_STATUS
