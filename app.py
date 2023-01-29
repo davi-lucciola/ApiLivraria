@@ -1,5 +1,5 @@
-from flask import Flask, request, jsonify, Response
-from resource.models.all_models import *
+from flask import Flask, Response, request, jsonify
+from resource.models.Livro import Livro
 from resource.database import livraria_repository
 import http.client as HTTP_STATUS
 
