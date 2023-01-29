@@ -54,7 +54,7 @@ def alterar_livro(id):
             autor= livro_data['autor']
         )
         livraria_repository.alterar_livro(id, new_livro)
-    except Exception as err:
+    except:
         return Response(status = HTTP_STATUS.BAD_REQUEST)
     
     return Response(status = HTTP_STATUS.CREATED)
@@ -65,10 +65,7 @@ def deletar_livro(id):
     try:
         livraria_repository.deletar_livro(id)
     except Exception as err:
-        return Response(
-                response = {"message" : err.__cause__},
-                status = HTTP_STATUS.BAD_REQUEST
-            )
+        return Response(status = HTTP_STATUS.BAD_REQUEST)
    
     return Response(status = HTTP_STATUS.ACCEPTED)
         
