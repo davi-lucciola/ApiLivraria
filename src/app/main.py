@@ -25,7 +25,7 @@ def get_one_book(id):
 @app.route('/livros/adicionar', methods=['POST'])
 def cadastrar_livro():
     livro_data = request.get_json()
-    livro = Livro(
+    livro = Livro (
         nome = livro_data.get('nome'),
         ano = livro_data.get('ano'),
         autor = livro_data.get('autor')
@@ -71,4 +71,4 @@ def deletar_livro(id):
         
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8080)
