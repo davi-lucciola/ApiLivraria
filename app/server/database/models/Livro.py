@@ -1,4 +1,4 @@
-from server.database.models.ModelBase import *
+from app.server.database.models.ModelBase import *
 
 
 class Livro(ModelBase):

@@ -1,7 +1,7 @@
 from flask import current_app as app
 from flask import make_response, request, jsonify
-from server.database.models.all_models import Livro
-from server.database.resource import livraria_repository
+from app.server.database.models.all_models import Livro
+from app.server.database.resource import livraria_repository
 import http.client as HTTP_STATUS
 
 
