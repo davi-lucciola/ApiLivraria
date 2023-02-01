@@ -1,5 +1,5 @@
-from resource.connection.session_factory import session_factory
-from resource.models.Livro import Livro
+from server.database.connection.session_factory import session_factory
+from server.database.models.Livro import Livro
 from typing import Optional
 
 

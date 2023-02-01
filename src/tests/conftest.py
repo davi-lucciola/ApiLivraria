@@ -1,6 +1,6 @@
 import pytest
 from flask import Flask
-import src.app.main as main
+import python.client.api.main as main
 
 
 @pytest.fixture(scope="module")

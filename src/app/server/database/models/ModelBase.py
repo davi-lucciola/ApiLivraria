@@ -1,4 +1,4 @@
-from resource.connection.engine import engine
+from server.database.connection.engine import engine
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String
 
