@@ -1,10 +1,11 @@
 from flask import current_app as app
 from flask import make_response, request, jsonify
 from app.server.database.models.all_models import Livro
-from app.server.database.resource import livraria_repository
+from app.server.resource import livraria_repository
 import http.client as HTTP_STATUS
 
 
+# Read all
 @app.route('/livros', methods=['GET'])
 def get_all_books():
     livros = livraria_repository.get_all()

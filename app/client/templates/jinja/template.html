@@ -1,0 +1,25 @@
+{% extends 'jinja/structure.html' %}
+
+{% block header %}
+    <header>
+        <nav class="nav-list">
+            <a href="/">
+                <img src="{{ url_for('static', filename='imgs/assets/bookstore-logo.png') }}" alt="bookstore_logo">
+            </a>
+            <ul>
+                <li> Books </li>
+                <li> Sobre </li>
+                <li> Buscar </li>
+            </ul>
+        </nav>
+    </header>
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        <p> &copy; Copyright {{currentYear}}, Example Corporation </p>
+        <a href="https://github.com/davi-lucciola"> 
+            <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=181717&logo=GitHub&logoColor=FFFFFF&label=" alt="Github_Badge">
+        </a>
+    </footer>
+{% endblock %}

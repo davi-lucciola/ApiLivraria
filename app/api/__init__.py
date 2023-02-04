@@ -18,7 +18,7 @@ def create_app():
     app.config.from_object("app.api.config.Config")
 
     with app.app_context():
-        from . import books_routes 
-        from . import library_routes
+        from .routes.commands import books 
+        from .routes.views import library
         
         return app

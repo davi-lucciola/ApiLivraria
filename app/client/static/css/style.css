@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-image: url('../imgs/assets/books_background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+header {
+    position: absolute;
+
+    width: 99.9%;
+    height: 12vh;
+    box-sizing: border-box;
+
+    background-color: rgba(0, 255, 255, 0.5);
+}
+
+header img {
+    height: 10vh;
+}
+
+header nav {
+    display: flex;
+    margin: auto;
+    align-items: center;
+}
+
+header img:hover {
+    height: 10vh;
+    background-color: rgba(0, 102, 102, 0.6);
+}
+
+
+
+header nav ul {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: center;
+}

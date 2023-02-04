@@ -1,11 +1,9 @@
 import pytest
 from flask import Flask
-import python.client.api.main as main
+from ..app.api import create_app
 
 
 @pytest.fixture(scope="module")
 def app_flask() -> Flask:
     '''Instância do app flask principal'''
-    return main.app
-
-
+    return create_app()
